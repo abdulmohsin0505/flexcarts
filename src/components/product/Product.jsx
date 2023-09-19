@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 
 function Product({ product }) {
   return (
-    <Link className="product_card">
+    <Link className="product_card" to={`products/${product.id}`}>
       <Card>
         <img
           style={{
