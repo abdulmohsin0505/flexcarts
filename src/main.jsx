@@ -7,11 +7,14 @@ import { store } from "./redux/store.js";
 import { Provider } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { MenuProvider } from "./context/menuContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <MenuProvider>
+        <App />
+      </MenuProvider>
     </Provider>
   </React.StrictMode>
 );
