@@ -14,7 +14,7 @@ function Products() {
   }, [dispatch]);
 
   return (
-    <main className="products my-4">
+    <main className="products">
       {loading && <h4 className="align-self-center">Loading...</h4>}
 
       {!loading && error ? <Error message={error} /> : null}
