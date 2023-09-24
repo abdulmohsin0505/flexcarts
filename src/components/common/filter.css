@@ -1,0 +1,6 @@
+.filter li:hover {
+  background: white;
+}
+.filter li:hover a {
+  color: black;
+}
