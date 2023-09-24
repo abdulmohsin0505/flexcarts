@@ -53,11 +53,15 @@ function Navbar() {
         <div className="d-none d-md-block">
           <ul className="navbar-nav">
             <li className="nav-item me-2 ">
-              <button className="btn btn-light">Login</button>
+              <button className="btn btn-light cart-link">
+                <Link to="#" className="cart-link">
+                  Login
+                </Link>
+              </button>
             </li>
             <li className="nav-item me-5">
               <button className="btn btn-light">
-                <Link to="/cart" className="cart-link ">
+                <Link to="/cart" className="cart-link text-dark">
                   Cart{" "}
                   <span className="badge text-bg-danger">{carts.length}</span>
                 </Link>
