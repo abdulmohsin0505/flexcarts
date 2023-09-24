@@ -31,7 +31,7 @@ function ProductDetail() {
     return <Error message={error} />;
   }
   return (
-    <main className="container d-flex justify-content-center align-items-center vh-100 product-detail">
+    <main className="container d-flex justify-content-center align-items-center vh-100 product-detail shadow">
       <div className="me-sm-5">
         <img
           src={product?.image}
@@ -53,7 +53,7 @@ function ProductDetail() {
           >
             Buy
           </Button>
-          <Link to="/">
+          <Link to="/products">
             <Button color="success" className="ms-2">
               Back
             </Button>
