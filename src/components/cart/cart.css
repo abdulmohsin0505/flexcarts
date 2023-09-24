@@ -1,4 +1,8 @@
-@media screen and (max-width: 550px) {
+.cart-image {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 576px) {
   .cart-image {
     width: 100px;
     height: 100px;

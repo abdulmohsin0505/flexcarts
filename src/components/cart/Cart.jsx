@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Container } from "react-bootstrap";
 import { removeFromCart, incQty, decQty } from "../../redux/slices/cartSlice";
+import "./cart.css";
 
 function Cart() {
   const { carts } = useSelector((state) => state.carts);
@@ -10,17 +11,17 @@ function Cart() {
   const totalAmount = carts
     ? carts.reduce((total, item) => total + item.price * item.quantity, 0)
     : 0;
-  console.log("total", totalAmount);
+
   return (
-    <Container className="mt-5 pt-3">
+    <Container className="mt-5 pt-3 mb-4">
       <Col>
         {carts.map((cart) => {
           return (
             <div
               key={cart.id}
-              className="d-flex justify-content-center align-items-center mt-3"
+              className="d-flex justify-content-center align-items-center mt-3 pb-2"
             >
-              <div className="">
+              <div>
                 <img
                   src={cart?.image}
                   alt={"productImg"}
@@ -43,9 +44,8 @@ function Cart() {
                 </Button>
                 <Button
                   size="sm"
-                  color="danger"
                   onClick={() => dispatch(removeFromCart(cart?.id))}
-                  className="ms-sm-2 remove-btn"
+                  className="ms-sm-2 remove-btn btn-danger"
                 >
                   Remove
                 </Button>
@@ -53,8 +53,10 @@ function Cart() {
             </div>
           );
         })}
-        <div className="text-center mt-3 text-success">
-          <h2>Total Cart Price RS - {totalAmount.toFixed(2)} $</h2>
+        <div className="text-center mt-3 text-success shadow">
+          <span className="fw-bold fs-2">
+            Total Cart Price RS - {totalAmount.toFixed(2)} $
+          </span>
         </div>
       </Col>
     </Container>
