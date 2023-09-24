@@ -18,9 +18,9 @@ function Products() {
   console.log(error);
   return (
     <main className="mt-5 pt-4 text-center">
-      <h1 className="border-info border-bottom d-inline-block">
+      <span className="border-info border-bottom d-inline-block fw-bold fs-1">
         Latest Products
-      </h1>
+      </span>
       <Filter />
       {loading && <h4 className="text-center">Loading...</h4>}
 
