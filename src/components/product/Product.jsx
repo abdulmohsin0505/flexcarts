@@ -7,7 +7,7 @@ import { addToCart } from "../../redux/slices/cartSlice";
 function Product({ product }) {
   const dispatch = useDispatch();
   return (
-    <Card className="product_card shadow">
+    <Card className="product_card shadow pt-3">
       <Link className="product_card_link" to={`/products/${product.id}`}>
         <img
           style={{

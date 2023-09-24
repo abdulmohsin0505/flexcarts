@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { fetchSingleProduct } from "../../redux/slices/productSlice";
+import { addToCart } from "../../redux/slices/cartSlice";
 import Error from "../error/Error";
 import "./product.css";
 
@@ -48,11 +49,7 @@ function ProductDetail() {
         <br />
         <h6>Rs - {product?.price} $</h6>
         <div>
-          <Button
-          // onClick={() => dispatch(addProduct(product))}
-          >
-            Buy
-          </Button>
+          <Button onClick={() => dispatch(addToCart(product))}>Buy</Button>
           <Link to="/products">
             <Button color="success" className="ms-2">
               Back
