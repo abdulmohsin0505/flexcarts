@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userLogin } from "../../redux/slices/authSlice";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [username, setUsername] = useState("mor_2314");
   const [password, setPassword] = useState("83r5^_");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     loading,
     user,
     error: authError,
+    isLoggedIn,
   } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      // Show success toast
+      toast.success("Login successful!");
+
+      // Navigate to the home page after a delay (e.g., 2 seconds)
+      const navigateTimeout = setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
+      // Clear the timeout when the component unmounts or when navigating
+      return () => {
+        clearTimeout(navigateTimeout);
+      };
+    } else if (authError) {
+      toast.error(authError);
+    }
+  }, [isLoggedIn, authError, navigate]);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -40,12 +62,19 @@ const Login = () => {
       console.error("Login failed:", error);
       return;
     }
-    // setError("");
-    // navigate("/");
   };
 
   return (
     <div className="container mt-5 pt-5">
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+        }}
+      />
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow">
@@ -100,7 +129,7 @@ const Login = () => {
                   )}
                 </button>
               </form>
-              {user ? <Navigate to="/" replace={true} /> : null}
+              {/* {user ? <Navigate to="/" replace={true} /> : null} */}
             </div>
           </div>
         </div>

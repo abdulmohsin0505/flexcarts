@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
+import toast from "react-hot-toast";
 
 function Product({ product }) {
   const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addToCart(product));
+    toast.success("1 item added to cart");
+  };
+
   return (
     <Card className="product_card shadow pt-3">
       <Link className="product_card_link" to={`/products/${product.id}`}>
@@ -24,7 +31,7 @@ function Product({ product }) {
           <p className=" fs-semibold">Price - {product?.price} $</p>
         </Card.Body>
       </Link>
-      <Button onClick={() => dispatch(addToCart(product))}>Add to Cart</Button>
+      <Button onClick={addItemToCart}>Add to Cart</Button>
     </Card>
   );
 }

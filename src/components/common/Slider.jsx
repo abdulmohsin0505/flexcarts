@@ -46,8 +46,8 @@ const Slider = ({ products }) => {
                   src={currentItem.image}
                   style={{
                     objectFit: "contain",
-                    width: "260px",
-                    heigth: "260px",
+                    width: "250px",
+                    heigth: "240px",
                     alignSelf: "center",
                   }}
                 />

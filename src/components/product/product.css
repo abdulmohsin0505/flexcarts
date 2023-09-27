@@ -11,7 +11,7 @@
 
 .product_card {
   width: 250px;
-  height: auto;
+  height: 336px;
   padding: 2px;
   transition: transform 0.3s;
   text-align: center;
