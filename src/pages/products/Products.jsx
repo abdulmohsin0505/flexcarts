@@ -3,7 +3,6 @@ import Filter from "../../components/common/Filter";
 import ProductList from "../../components/product/ProductList";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/slices/productsSlice";
-import { Toaster } from "react-hot-toast";
 
 function Products() {
   const { loading, products, error } = useSelector(
@@ -19,15 +18,6 @@ function Products() {
   console.log(error);
   return (
     <main className="mt-5 pt-4 text-center">
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-        }}
-      />
       <span className="border-info border-bottom d-inline-block fw-bold fs-1">
         Latest Products
       </span>
