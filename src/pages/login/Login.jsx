@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { userLogin } from "../../redux/slices/authSlice";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import Toast from "../../components/toast/Toast";
 
 const Login = () => {
   const [username, setUsername] = useState("mor_2314");
@@ -66,15 +67,6 @@ const Login = () => {
 
   return (
     <div className="container mt-5 pt-5">
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-        }}
-      />
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow">
@@ -129,7 +121,6 @@ const Login = () => {
                   )}
                 </button>
               </form>
-              {/* {user ? <Navigate to="/" replace={true} /> : null} */}
             </div>
           </div>
         </div>

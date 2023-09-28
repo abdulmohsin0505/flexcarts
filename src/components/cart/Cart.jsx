@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Container } from "react-bootstrap";
 import { removeFromCart, incQty, decQty } from "../../redux/slices/cartSlice";
-import toast, { Toaster } from "react-hot-toast";
+// import toast from "react-hot-toast";
 import "./cart.css";
 
 function Cart() {
@@ -15,20 +15,11 @@ function Cart() {
 
   const removeItemFromCart = (id) => {
     dispatch(removeFromCart(id));
-    toast.success("item removed from cart");
+    // toast.success("item removed from cart");
   };
 
   return (
     <Container className="mt-5 pt-3 mb-4">
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-        }}
-      />
       <Col>
         {carts.map((cart) => {
           return (
